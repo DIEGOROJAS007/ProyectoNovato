@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Historia e innovación de la calculadora y su funcionalidad interactiva hasta el 2024">
+    <title>Historia e Innovación de la Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1F1F1F;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: #FFC107;
+        }
+        section {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            color: #FFC107;
+        }
+        .content {
+            background-color: #1F1F1F;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .calculator {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input {
+            background-color: #333;
+            color: #FFF;
+            border: 1px solid #FFC107;
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            background-color: #FFC107;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #FFB300;
+        }
+        footer {
+            background-color: #1F1F1F;
+            padding: 10px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Historia e Innovación de la Calculadora</h1>
+</header>
+
+<section>
+    <div class="content">
+        <h2>La Historia de la Calculadora</h2>
+        <p>
+            La calculadora, en su forma más básica, tiene sus orígenes en el ábaco, que fue utilizado por antiguas civilizaciones 
+            como Babilonia y Egipto. A lo largo del tiempo, ha evolucionado hasta convertirse en una herramienta esencial en 
+            nuestra vida diaria. Desde la primera calculadora mecánica creada por Blaise Pascal en 1642, hasta las calculadoras 
+            electrónicas de mediados del siglo XX, su desarrollo ha sido imparable.
+        </p>
+    </div>
+
+    <div class="content">
+        <h2>Innovación Hasta el 2024</h2>
+        <p>
+            En el 2024, las calculadoras han dado un gran salto hacia la integración de tecnologías avanzadas. Con la llegada de la 
+            inteligencia artificial, las calculadoras modernas no solo realizan cálculos aritméticos, sino que también pueden resolver 
+            ecuaciones complejas, interpretar gráficos y realizar cálculos en tiempo real basados en datos en la nube. Además, su 
+            integración con dispositivos móviles y plataformas de software ha mejorado significativamente la accesibilidad y la 
+            eficiencia en el trabajo diario.
+        </p>
+    </div>
+
+    <div class="calculator content">
+        <h2>Calculadora Interactiva</h2>
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="appendNumber(1)">1</button>
+        <button onclick="appendNumber(2)">2</button>
+        <button onclick="appendNumber(3)">3</button>
+        <button onclick="setOperator('+')">+</button>
+        <br>
+        <button onclick="appendNumber(4)">4</button>
+        <button onclick="appendNumber(5)">5</button>
+        <button onclick="appendNumber(6)">6</button>
+        <button onclick="setOperator('-')">-</button>
+        <br>
+        <button onclick="appendNumber(7)">7</button>
+        <button onclick="appendNumber(8)">8</button>
+        <button onclick="appendNumber(9)">9</button>
+        <button onclick="setOperator('*')">*</button>
+        <br>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendNumber(0)">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="setOperator('/')">/</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Historia de la Calculadora. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    let currentInput = '';
+    let operator = '';
+    let previousInput = '';
+
+    function appendNumber(number) {
+        currentInput += number;
+        document.getElementById('display').value = currentInput;
+    }
+
+    function setOperator(op) {
+        if (currentInput === '') return;
+        operator = op;
+        previousInput = currentInput;
+        currentInput = '';
+        document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+        if (previousInput === '' || currentInput === '' || operator === '') return;
+        let result = 0;
+        switch(operator) {
+            case '+':
+                result = parseFloat(previousInput) + parseFloat(currentInput);
+                break;
+            case '-':
+                result = parseFloat(previousInput) - parseFloat(currentInput);
+                break;
+            case '*':
+                result = parseFloat(previousInput) * parseFloat(currentInput);
+                break;
+            case '/':
+                if (parseFloat(currentInput) === 0) {
+                    result = 'Error';
+                } else {
+                    result = parseFloat(previousInput) / parseFloat(currentInput);
+                }
+                break;
+        }
+        document.getElementById('display').value = result;
+        previousInput = '';
+        currentInput = '';
+        operator = '';
+    }
+
+    function clearDisplay() {
+        currentInput = '';
+        previousInput = '';
+        operator = '';
+        document.getElementById('display').value = '';
+    }
+</script>
+
+</body>
+</html>
