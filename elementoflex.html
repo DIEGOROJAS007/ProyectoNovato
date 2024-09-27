@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        
+    .container {
+        display: flex;
+        background:papayawhip;
+        justify-content: space-around;
+        align-items: center ;
+        height: 200px;
+        flex-direction: row;
+        gap: 15px;
+        
+    }
+    
+    .item1 {
+        width: 30px;
+        height: 30PX;
+        background: violet;
+        
+    }
+    .item2 {
+        width: 30px;
+        height: 30PX;
+        background: rgb(122, 100, 184);
+    }
+    .item3 {
+        width: 30px;
+        height: 30PX;
+        background: rgb(58, 181, 54);
+      
+    }
+        
+    .item4 {
+        color: aliceblue;
+        width: 30px;
+        height: 30PX;
+        background: rgb(12, 32, 9);
+      
+    }
+    .container .item:nth-child(2n + 1) {
+        background: cyan;
+
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+    </div>
+    <div>
+        
+<!-- On tables -->
+<table class="table-primary">...</table>
+<table class="table-secondary">...</table>
+<table class="table-success">...</table>
+<table class="table-danger">...</table>
+<table class="table-warning">...</table>
+<table class="table-info">...</table>
+<table class="table-light">...</table>
+<table class="table-dark">...</table>
+
+<!-- On rows -->
+<tr class="table-primary">...</tr>
+<tr class="table-secondary">...</tr>
+<tr class="table-success">...</tr>
+<tr class="table-danger">...</tr>
+<tr class="table-warning">...</tr>
+<tr class="table-info">...</tr>
+<tr class="table-light">...</tr>
+<tr class="table-dark">...</tr>
+
+<!-- On cells (`td` or `th`) -->
+<tr>
+  <td class="table-primary">...</td>
+  <td class="table-secondary">...</td>
+  <td class="table-success">...</td>
+  <td class="table-danger">...</td>
+  <td class="table-warning">...</td>
+  <td class="table-info">...</td>
+  <td class="table-light">...</td>
+  <td class="table-dark">...</td>
+</tr>
+    </div>
+    
+</body>
+</html>
